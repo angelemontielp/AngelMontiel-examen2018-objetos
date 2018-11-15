@@ -1,0 +1,39 @@
+import cerveza.*
+import funcionamiento.*
+
+describe "Funcionamiento" {
+	
+	var distribuidora = new Distribuidora()
+	
+	distribuidora.addLotesAPedido(lager)
+	distribuidora.addLotesAPedido(lager)
+	distribuidora.addLotesAPedido(lager)
+	distribuidora.addLotesAPedido(lager)
+	
+	test "ElcostodeUnPedidode4lotesLagerlocalconTresIngredientesTresBirreroses3298"{
+		
+		distribuidora.costoLote(lager, tresBirreros, lupuloLocal)
+	
+		assert.equals(3298, distribuidora.costoPedido(tresBirreros))
+		
+	}
+	
+	test "ElcostodeUnLoteLagerLagerlocalconTresIngredientesTresBirreroses820.75"{
+	
+		assert.equals(820.75, distribuidora.costoLote(lager, tresBirreros, lupuloLocal))
+		
+	}
+	
+	test "EltotalFacturadoparaElMismoPedidoEs3298"{
+	
+		assert.equals(3298, distribuidora.totalFacturado(tresBirreros))
+		
+	}
+	
+	test "LaCantidaddePedidosLageres1"{
+	
+		assert.equals(1, distribuidora.cantTipoDePedido(lager))
+		
+	}
+	
+}
